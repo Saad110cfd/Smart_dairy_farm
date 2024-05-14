@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Detail</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Existing CSS styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .details p {
+            margin-bottom: 10px;
+        }
+        
+        .details p strong {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #333;
+        }
+        
+        /* Button styles */
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>    
+</head>
+<body>
+    <div class="container">
+        <h1>Farm Details</h1>
+        <div class="details">
+            <p><strong>Name:</strong> {{ farm.name }}</p>
+            <p><strong>Location:</strong> {{ farm.location }}</p>
+            <p><strong>Owner Name:</strong> {{ farm.owner_name }}</p>
+            <p><strong>Owner Contact:</strong> {{ farm.owner_contact }}</p>
+            <p><strong>Owner Address:</strong> {{ farm.owner_address }}</p>
+            <p><strong>Size in Acres:</strong> {{ farm.size_in_acres }}</p>
+            <p><strong>Farm Type:</strong> {{ farm.farm_type }}</p>
+            <p><strong>Barns:</strong> {{ farm.barns }}</p>
+            <p><strong>Sheds:</strong> {{ farm.sheds }}</p>
+            <p><strong>Irrigation System:</strong> {{ farm.irrigation_system }}</p>
+            <p><strong>Revenue:</strong> {{ farm.revenue }}</p>
+            <p><strong>Expenses:</strong> {{ farm.expenses }}</p>
+            <p><strong>Profits:</strong> {{ farm.profits }}</p>
+            
+        </div>
+        <a href="{% url 'users:index' %}"><button>Back</button></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light grey background */
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Container styles */
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff; /* White background */
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth effect */
+        }
+        
+        /* Heading styles */
+        h1 {
+            text-align: center;
+            color: #333; /* Dark grey text */
+        }
+        
+        /* Form styles */
+        form {
+            margin-top: 20px;
+        }
+        
+        /* Label styles */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555; /* Medium grey text */
+        }
+        
+        /* Input styles */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Light grey border */
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.5s ease-in-out, fadeIn 0.5s ease-in-out;
+        }
+
+        /* Button styles */
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Sky blue button background */
+            color: #fff; /* White text */
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth background color transition */
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker sky blue on hover */
+        }
+        
+        /* Error message styles */
+        .error-message {
+            color: #d9534f; /* Red text for error messages */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="container">
+        <form method="post" action = "{% url 'dairymanagementsystem:signup'%}">
+            {% csrf_token %}
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            <label for="Email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <label for="confirm">Confirm Password:</label>
+            <input type="password" id="confirm" name="confirm" placeholder="Confirm your password" required>
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+</body>
+</html>

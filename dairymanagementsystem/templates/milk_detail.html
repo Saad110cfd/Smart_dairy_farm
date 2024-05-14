@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk Production Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        h1, h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Milk Production Details</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="animal_name">Enter animal name:</label>
+        <input type="text" name="animal_name" id="animal_name">
+        <button type="submit">Show Milk Production</button>
+      
+    </form>
+    {% if animal %}
+    <h2>Animal: {{ animal.name }}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Amount (in kgs)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for milk_record in milk_production %}
+            <tr>
+                <td>{{ milk_record.milking_date }}</td>
+                <td>{{ milk_record.amount_in_kgs }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'users:index' %}"> <button type="btn">Back</button>
+
+    {% endif %}
+</body>
+</html>

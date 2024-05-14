@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, ul {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Background image for the whole page */
+        body {
+            background-image: url('dairy_farm_background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+        /* Style for the login button */
+        .login-button {
+            padding: 10px;
+            font-size: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            margin: 15px auto;
+            width: 3%
+        }
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+        /* Style for the section */
+        .section {
+            margin-top: 30px;
+            padding: 30px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Style for the box */
+        .box {
+            padding: 5px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            text-align: center;
+            width: 10%; /* Adjust box width */
+            display: inline-block; /* Make boxes inline */
+            vertical-align: top; /* Align boxes to the top */
+        }
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        /* Style for the list */
+        /* Style for the list */
+.function-list {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+    background-color: #fff; /* Background color for the list */
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Box shadow for the list */
+    position: absolute;
+    width: 100%; /* Adjust width to fit parent */
+    z-index: 1; /* Ensure it appears above other elements */
+}
+
+.function-list li {
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Add a border between list items */
+}
+
+.function-list li:last-child {
+    border-bottom: none; /* Remove border from the last list item */
+}
+
+.function-list li a {
+    color: #333; /* Text color for the links */
+    text-decoration: none; /* Remove default underline */
+    display: block;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.function-list li a:hover {
+    background-color: #f0f0f0; /* Background color on hover */
+}
+
+        .box:hover .function-list {
+            display: block;
+        }
+        .function-list li {
+            margin-bottom: 5px;
+        }
+        /* Additional styles */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        /* Realistic icon styles */
+        .icon {
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0 auto 10px;
+        }
+        .farm-icon {
+            background-image: url('farm_icon.png');
+        }
+        .animal-icon {
+            background-image: url('animal_icon.png');
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Dairy Farm Management System</h1>
+    <a href="{% url 'dairymanagementsystem:login' %}" class="login-button">Login</a>    
+    <a href="{% url 'dairymanagementsystem:signup' %}" class="login-button">Signup</a>    
+
+    <!-- Additional section for Django view functions -->
+    
+        <h2>Farm Management</h2>
+        <div class="section">
+        <div class="box">
+            Farm
+            <ul class="function-list">
+                <li><a href="{% url 'dairymanagementsystem:farm_detail' %}">Farm Detail</a></li>
+                <li><a href="{% url 'dairymanagementsystem:add_farm' %}">Add Farm</a></li>
+                <li><a href="{% url 'dairymanagementsystem:edit_farm' %}">Edit Farm</a></li>
+                <li><a href="{% url 'dairymanagementsystem:delete_farm' %}">Delete Farm</a></li>
+            </ul>
+        </div>
+        <div class="box">
+            Animal
+            <ul class="function-list">
+                <li><a href="{% url 'dairymanagementsystem:animal_details' %}">Animal Detail</a></li>
+                <li><a href="{% url 'dairymanagementsystem:animal_add' %}">Add Animal</a></li>
+                <li><a href="{% url 'dairymanagementsystem:edit_animal' %}">Edit Animal</a></li>
+                <li><a href="{% url 'dairymanagementsystem:delete_animal' %}">Delete Animal</a></li>
+                <li><a href="{% url 'dairymanagementsystem:add_milk_production' %}">Milk production</a></li>
+                <li><a href="{% url 'dairymanagementsystem:milk_detail' %}">Milk Details</a></li>
+
+                 
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

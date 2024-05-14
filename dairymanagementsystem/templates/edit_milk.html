@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Milk Production</title>
+</head>
+<body>
+    <h1>Edit Milk Production</h1>
+    <form id="editMilkForm" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+
+    <script>
+        document.getElementById('editMilkForm').addEventListener('submit', function(event) {
+            var amountInKgs = document.getElementById('id_amount_in_kgs').value;
+            if (isNaN(parseFloat(amountInKgs)) || !isFinite(amountInKgs)) {
+                alert('Please enter a valid amount for milk production.');
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    </script>
+</body>
+</html>
